@@ -111,3 +111,13 @@ var that=$(this);var intvl=setInterval(function(){that.html("<span class='button
 function copyFunction(textvalue){var copyText=document.getElementById("thecopying");var textArea=document.createElement("textarea");textArea.value=textvalue;document.body.appendChild(textArea);textArea.select();document.execCommand("Copy");textArea.remove();}
 window.onscroll=function(){myFunction()};var header=document.getElementById("sticky-wrapper");var sticky=header.offsetTop;function myFunction(){if(window.pageYOffset>sticky){header.classList.add("sticky");}else{header.classList.remove("sticky");}}
 document.addEventListener("DOMContentLoaded",function(){var e=[].slice.call(document.querySelectorAll("img.lazy"));if("IntersectionObserver"in window){let n=new IntersectionObserver(function(e,t){e.forEach(function(e){if(e.isIntersecting){let t=e.target;t.src=t.dataset.src,t.classList.remove("lazy"),n.unobserve(t)}})});e.forEach(function(e){n.observe(e)})}});
+  $('.font-slider input[type="range"]').on("input change", function() {
+  var newSize = $(this).val(),
+    defaultSize = $("p.fancy-text-data").css("font-size"),
+    minSize = 12,
+    maxSize = 50;
+  if (newSize <= maxSize && newSize >= minSize) {
+    $("p.fancy-text-data").css("font-size", newSize + "px");
+    // localStorage.setItem("__ACCESSIBILITY__font_size", newSize);
+  }
+});
